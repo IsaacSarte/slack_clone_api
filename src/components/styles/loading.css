@@ -1,0 +1,14 @@
+/* Main Loading GIF Styling */
+
+.loadingContainer {
+    display: grid;
+    place-content: center;
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    margin-left: 37%;
+    transform: translateY(30vh);
+    width: 25%;
+}

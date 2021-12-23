@@ -1,0 +1,66 @@
+.log_reg_Container {
+    color: black;
+    min-height: 100vh;
+    position: relative;
+}
+
+.toSignUp {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: -1.75rem;
+    right: 0;
+    margin-right: 3rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.newSpan,
+.toSignUpSpan {
+    font-size: 1rem;
+}
+
+.newSpan {
+    font-weight: 400;
+}
+
+.toSignUpSpan {
+    color: #0B4C97;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.toSignUpSpan:hover {
+    text-decoration: underline;
+}
+
+.hrLines {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: default;
+}
+
+.hrLine1,
+.hrLine2 {
+    margin-top: 0.65rem;
+    border-top: 1px solid rgb(44, 44, 44);
+}
+
+.hrLine1 {
+    margin-right: 2.25rem;
+    width: 10rem;
+    height: 0rem;
+}
+
+.hrSpanText {
+    font-size: 1.25rem;
+    margin-top: -0.2rem;
+}
+
+.hrLine2 {
+    margin-left: 2.25rem;
+    width: 10rem;
+    height: 0rem;
+}

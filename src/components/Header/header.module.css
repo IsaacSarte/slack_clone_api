@@ -1,0 +1,49 @@
+header {
+    padding: 1vh;
+    color: white;
+    background-color: #4A154B;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 1.75rem;
+    margin-top: 0.15rem;
+}
+
+.ul {
+    display: flex;
+    list-style: none;
+    margin-top: 0.75rem;
+}
+
+.ul li {
+    margin-left: 1.5rem;
+    cursor: pointer;
+}
+
+.ul li:hover {
+    border-bottom: 1px solid white;
+}
+
+.loginBtn {
+    cursor: pointer;
+    background: white;
+    color: #4A154B;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    outline-style: none;
+    border: none;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.loginBtn:hover {
+    border-radius: 0px;
+}
