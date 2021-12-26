@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from 'framer-motion';
 
 // CSS
-import styles from './header.module.css';
+import styles from './styles/header.module.css';
 
 const Header = () => {
     return (

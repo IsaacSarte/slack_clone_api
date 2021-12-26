@@ -5,7 +5,7 @@ import SearchBar from '../../Searchbar/SearchBar.js';
 import LogOut from '../../LogOut/LogOut.jsx';
 
 // CSS
-import styles from './dashboardheader.module.css';
+import styles from './styles/dashboardheader.module.css';
 
 // Icons
 import { FiClock } from "react-icons/fi";

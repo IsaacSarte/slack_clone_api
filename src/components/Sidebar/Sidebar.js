@@ -119,7 +119,7 @@ const Sidebar = (props) => {
 
                             {/* Title */}
                             <div className="sidebar-h2">
-                                <h2>Slack Clone API</h2>
+                                <h2>Islaack</h2>
                                 &nbsp;
                                 <RiPencilFill
                                     style={{

@@ -11,7 +11,7 @@
     max-width: 280px;
     width: 280px;
     padding: 0;
-    height: calc(95vh);
+    height: calc(95.5vh);
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -52,6 +52,10 @@
     margin-bottom: 5px;
 }
 
+.sidebar-h2 h2 {
+    font-weight: 400;
+}
+
 .sidebar-h3 {
     display: flex;
     font-size: 15px;
@@ -76,6 +80,11 @@
 
 .user-name {
     padding-top: 3px;
+}
+
+.user-name h3 {
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .expander-div {
