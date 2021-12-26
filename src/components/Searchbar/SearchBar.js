@@ -130,8 +130,8 @@ const SearchBar = (props) => {
         <div
             className={
                 searchFor === 'AddMembers' ? 
-                'add_member_form_container' : 
-                'input_and_button_wrapper'
+                styles.add_member_form_container : 
+                styles.input_and_button_wrapper
             }
         >
 
@@ -147,7 +147,7 @@ const SearchBar = (props) => {
                     >
                         <input
                             type="text"
-                            placeholder={placeholder}
+                            placeholder="Search for members"
                             onChange={(e) => {
                                 e.target.value !== "" ? setIsActive(true) : setIsActive(false);
                                 setSearchEntry(e.target.value);
@@ -160,8 +160,8 @@ const SearchBar = (props) => {
                             }}
                             className={
                                 searchFor === "AddMembers" ? 
-                                "input_add" : 
-                                "input_search"
+                                styles.input_add : 
+                                styles.input_search
                             }
                             value={searchEntry}
                         />
@@ -173,8 +173,8 @@ const SearchBar = (props) => {
                         <div
                             className={
                                 searchFor === 'AddMembers' ?
-                                'add_mem_sug' : 
-                                'suggestions'
+                                styles.add_mem_sug : 
+                                styles.suggestions
                             }
                             onClick={(e) => {
                                 setIsActive(false);
@@ -191,8 +191,8 @@ const SearchBar = (props) => {
                 type="submit"
                 className={
                     searchFor === 'AddMembers' ?
-                    'searchBtn' : 
-                    'headerBtn'
+                    styles.searchBtn : 
+                    styles.headerBtn
                 }
                 onClick={
                     searchFor === 'AddMembers' ? 

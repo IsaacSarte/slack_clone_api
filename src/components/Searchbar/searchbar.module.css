@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.input_and_button_wrapper {
+    display: flex;
+}
+
+/* Search Containers */
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_searchbar {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+/* Inputs */
+
+.input_search {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 500px;
+    margin: 0 10px 0 20px;
+    padding: 3px;
+    background-color: #8A4BF0;
+    color: white;
+    transform: translateY(0.15rem);
+    font-size: 1rem;
+}
+
+.input_search:focus {
+    color: white;
+}
+
+.input_search::placeholder {
+    color: white;
+}
+
+.input_add {
+    width: 480px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.input_add {
+    width: 480px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.suggestions {
+    position: absolute;
+    font-size: 1rem;
+    height: max-content;
+    max-height: 45vh;
+    overflow-y: auto;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    background-color: #222;
+    color: white;
+}
+
+.suggestions>div {
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-top: 0.25rem;
+}
+
+.suggestions>div:hover {
+    background-color: #1264A3;
+}
+
+.add_mem_sug {
+    max-height: 80px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+/* Buttons */
+
+.headerBtn {
+    outline: none;
+    border: none;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
