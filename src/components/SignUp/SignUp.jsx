@@ -43,7 +43,7 @@ const SignUp = (props) => {
                 localStorage.setItem("client", res.headers["client"]);
                 localStorage.setItem("uid", res.headers["uid"]);
                 localStorage.setItem("expiry", res.headers["expiry"]);
-                window.location = '/dasboard';
+                window.location = '/dashboard';
             })
             .catch((e) => {
                 console.log(e.response.data.errors.full_messages[0]);

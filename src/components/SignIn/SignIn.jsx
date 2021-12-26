@@ -25,8 +25,15 @@ const SignIn = () => {
     /* State Management */
 
     // Credentials State Management
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = ('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    // Modal State Management
+    const [openModal, setOpenModal] = useState(false);
+
+    const showModal = () => {
+        setOpenModal((prev) => !prev);
+    }
 
     // Error State Management
     const [error, setError] = useState('');
@@ -53,8 +60,8 @@ const SignIn = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
         const url = 'https://slackapi.avionschool.com/api/v1/auth/sign_in';
+        e.preventDefault();
 
         axios
             .post(url, {
@@ -66,14 +73,7 @@ const SignIn = () => {
                 setError(e.response.data.errors[0]);
                 console.log(`${e}`);
             })
-    }
-
-    // Modal State Management
-    const [openModal, setOpenModal] = useState(false);
-
-    const showModal = () => {
-        setOpenModal((prev) => !prev);
-    }
+    };
 
     return (
         <div className={styles.log_reg_container}>
@@ -166,10 +166,9 @@ const SignIn = () => {
                 >
                     {/* Email Input */}
                     <input
-                        type="text"
+                        type="email"
                         className="inputText"
                         placeholder="name@email.com"
-                        name="email"
                         onChange={handleEmailChange}
                         required
                     />
@@ -179,7 +178,6 @@ const SignIn = () => {
                         type="password"
                         className="inputPassword"
                         placeholder="password here"
-                        name="password"
                         onChange={handlePasswordChange}
                         required
                     />
@@ -187,13 +185,12 @@ const SignIn = () => {
                     <p className="errorStyle">{error}</p>
 
                     {/* Submit */}
-                    <button
+                    <input
                         className="log-regBtn"
                         type="submit"
                         id="submit"
-                    >
-                        Sign In with Email
-                    </button>
+                        value="Sign in with email"
+                    />
                 </form>
             </motion.div>
         </div>

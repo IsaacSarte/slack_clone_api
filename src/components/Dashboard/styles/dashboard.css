@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.dashboard {
+    display: grid;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 40px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar chat";
+}
+
+.header-container {
+    grid-area: header;
+    z-index: 1;
+}
+
+.sidebar-dashboard {
+    grid-area: sidebar;
+}
+
+.chat-dashboard {
+    grid-area: chat;
+}

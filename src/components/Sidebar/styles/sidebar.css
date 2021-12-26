@@ -1,0 +1,121 @@
+.sidebar-scrollhider {
+    overflow: hidden;
+    min-width: 260px;
+    max-width: 260px;
+}
+
+.sidebar-container {
+    background-color: #14101A;
+    color: white;
+    border-top: 1px solid #49274b;
+    max-width: 280px;
+    width: 280px;
+    padding: 0;
+    height: calc(95vh);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.modal-container {
+    z-index: 99;
+    transform: translate(Y -40px);
+}
+
+.sidbar-header {
+    display: flex;
+    padding-bottom: 10px;
+    padding: 13px;
+}
+
+.sidebar-info {
+    flex: 1;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #49274b;
+}
+
+.sidebar-options {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #49274b;
+}
+
+.sidebar-h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.sidebar-h3 {
+    display: flex;
+    font-size: 15px;
+    font-weight: 400px;
+    align-items: center;
+}
+
+.channel-name {
+    font-size: 16px;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    display: flex;
+}
+
+.channel-name:hover {
+    opacity: 0.9;
+    background-color: #340e36;
+}
+
+.user-name {
+    padding-top: 3px;
+}
+
+.expander-div {
+    display: flex;
+    align-items: center;
+}
+
+.direct-messages {
+    height: 0;
+    transition: height 0.3s;
+    overflow: hidden;
+}
+
+.direct-message-user {
+    margin: 0;
+    padding: 0;
+}
+
+.expanded {
+    height: max-content;
+}
+
+.sidebar-channel {
+    padding-left: 10px;
+}
+
+.isActiveChat {
+    background-color: #1164a3ff;
+    pointer-events: none;
+}
+
+.disclaimer {
+    margin-right: 20px;
+    padding: 8px 0;
+    font-size: 12px;
+    text-align: center;
+    color: #696969;
+    position: fixed;
+    height: 60px;
+    bottom: 0;
+    background-color: #4a154b;
+    width: 260px;
+}

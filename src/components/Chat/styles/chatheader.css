@@ -1,0 +1,38 @@
+.channel-header-title {
+    padding: 10px 0 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-child {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header-child h1 {
+    text-align: center;
+    cursor: pointer;
+}
+
+.chat-header-parent {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.add-people-button {
+    background-color: #347a5a;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 80px;
+}
+
+.add-people-button:hover {
+    background-color: #459772;
+}
+
+.chat-title {
+    padding: 10px;
+}

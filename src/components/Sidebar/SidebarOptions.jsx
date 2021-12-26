@@ -1,12 +1,31 @@
 import React from 'react';
 
 // CSS
-import styles from './sidebaroptions.module.css';
+import './styles/sidebaroptions.css';
 
-const SidebarOptions = () => {
+const SidebarOptions = (props) => {
+
+    // Props
+    const { Icon, title } = props;
+
     return (
-        <div>
-
+        <div className="sidebar-option-container">
+            {Icon && (
+                <Icon
+                    fontSize="20px"
+                    style={{
+                        paddingRight: '4px',
+                        color: 'white'
+                    }}
+                />
+            )}
+            {Icon ? (
+                <h3>{title}</h3>
+            ) : (
+                <div className="sidebar-option-channel">
+                    <span>#</span> {title}
+                </div>
+            )}
         </div>
     )
 }

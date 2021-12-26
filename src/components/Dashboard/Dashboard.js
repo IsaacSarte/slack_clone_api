@@ -12,7 +12,7 @@ import Sidebar from '../Sidebar/Sidebar.js';
 import Chat from '../Chat/Chat.js';
 
 // CSS
-import styles from './dashboard.module.css';
+import './styles/dashboard.css';
 
 const Dashboard = () => {
 
@@ -138,14 +138,14 @@ const Dashboard = () => {
     }, [filteredDMS, channelDB]);
 
     return (
-        <div className={styles.dashboard}>
+        <div className="dashboard">
             {/* Error Message */}
             {errorLoading ? errorMsg() : null}
 
-            <div className={styles.main_dashboard}>
+            <div className="main-container">
 
                 {/* Dashboard Header Component */}
-                <div className={styles.header_container}>
+                <div className="header-container">
                     {isLoaded && (
                         <DashboardHeader 
                             userDB={userDB}
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Sidebar Component */}
-                <div className={styles.sidebar_container}>
+                <div className="sidebar-dashboard">
                         {isLoaded && (
                             <Sidebar 
                                 userDB={userDB}
@@ -171,7 +171,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Chat Component */}
-                <div className={styles.chat_container}>
+                <div className="chat-dashboard">
                         {isLoaded && (
                             <Chat 
                                 userDB={userDB}

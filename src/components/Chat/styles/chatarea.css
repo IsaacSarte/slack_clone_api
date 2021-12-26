@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+.name {
+    color: #5890bcff;
+    background-color: #e8f5faff;
+    border: none;
+    height: 1.5em;
+    font-size: 0.9em;
+    padding: 0 5px;
+}
+
+.name:hover {
+    cursor: pointer;
+}
+
+.messages-header {
+    margin: 20px;
+}
+
+.messages-header-top-part {
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.messages-header-top-part p {
+    margin-left: 10px;
+}
+
+/* apologies for the confusing names, short on time kind of */
+.ChatArea {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+
+.chat-wrapper {
+    margin-top: auto;
+}

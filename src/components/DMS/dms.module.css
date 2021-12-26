@@ -1,0 +1,16 @@
+.dmDiv {
+    display: flex;
+    flex-flow: row;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+}
+
+.dmDiv:hover {
+    cursor: pointer;
+    background-color: #340e36;
+}
+
+.dmUID {
+    padding-left: 10px;
+}
