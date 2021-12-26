@@ -4,7 +4,7 @@ import React from 'react';
 import AuthAPI from '../../Services/AuthAPI.js';
 
 // CSS
-import styles from './logout.module.css';
+import styles from './styles/logout.module.css';
 
 // Icons
 import { MdOutlineLogout } from "react-icons/md"
