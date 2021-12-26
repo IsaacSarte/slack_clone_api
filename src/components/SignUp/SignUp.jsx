@@ -7,7 +7,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 
 // CSS
-import styles from './signup.module.css';
+import styles from './styles/signup.module.css';
 import '../styles/form.css';
 
 // Icons

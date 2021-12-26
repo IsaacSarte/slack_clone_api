@@ -13,7 +13,7 @@ import SignUp from '../SignUp/SignUp.jsx';
 import { motion } from 'framer-motion';
 
 // CSS
-import styles from './signin.module.css';
+import styles from './styles/signin.module.css';
 import '../styles/loading.css';
 import '../styles/form.css';
 
