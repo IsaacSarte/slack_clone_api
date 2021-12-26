@@ -1,7 +1,7 @@
 import React from 'react';
 
 // CSS
-import styles from './msg.module.css';
+import styles from './styles/msg.module.css';
 
 const Msg = (props) => {
 
