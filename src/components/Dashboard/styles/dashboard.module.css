@@ -6,7 +6,7 @@
     display: grid;
 }
 
-.main-container {
+.main_Container {
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 40px 1fr;
@@ -15,15 +15,15 @@
         "sidebar chat";
 }
 
-.header-container {
+.header_Container {
     grid-area: header;
     z-index: 1;
 }
 
-.sidebar-dashboard {
+.sidebar_Dashboard {
     grid-area: sidebar;
 }
 
-.chat-dashboard {
+.chat_Dashboard {
     grid-area: chat;
 }

@@ -12,7 +12,7 @@ import Sidebar from '../Sidebar/Sidebar.js';
 import Chat from '../Chat/Chat.js';
 
 // CSS
-import './styles/dashboard.css';
+import styles from './styles/dashboard.module.css';
 
 const Dashboard = () => {
 
@@ -134,18 +134,17 @@ const Dashboard = () => {
 
     },[isUserLoaded, isRecentLoaded, isChannelLoaded]);
 
-    useEffect(() => {
-    }, [filteredDMS, channelDB]);
+    useEffect(() => {}, [filteredDMS, channelDB]);
 
     return (
-        <div className="dashboard">
+        <div className={styles.dashboard}>
             {/* Error Message */}
             {errorLoading ? errorMsg() : null}
 
-            <div className="main-container">
+            <div className={styles.main_Container}>
 
                 {/* Dashboard Header Component */}
-                <div className="header-container">
+                <div className={styles.header_Container}>
                     {isLoaded && (
                         <DashboardHeader 
                             userDB={userDB}
@@ -157,7 +156,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Sidebar Component */}
-                <div className="sidebar-dashboard">
+                <div className={styles.sidebar_Dashboard}>
                         {isLoaded && (
                             <Sidebar 
                                 userDB={userDB}
@@ -171,7 +170,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Chat Component */}
-                <div className="chat-dashboard">
+                <div className={styles.chat_Dashboard}>
                         {isLoaded && (
                             <Chat 
                                 userDB={userDB}
