@@ -202,7 +202,12 @@ const SearchBar = (props) => {
                 {searchFor === 'AddMembers' ? 'Add Member' : <BiSearch />}
             </button>
 
-            {responseMsg && <Msg error={errors} message={responseMsg} />}
+            {responseMsg && 
+                <Msg 
+                    error={errors} 
+                    message={responseMsg} 
+                />
+            }
         </div>
     )
 }
