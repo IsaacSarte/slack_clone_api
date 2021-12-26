@@ -41,10 +41,6 @@ const Dashboard = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [errorLoading, setErrorLoading] = useState(false);
 
-    const errorMsg = () => {
-        return <div>Please Sign In again to Continue 😊</div>
-    }
-
     /* useEffect */
 
     useEffect(() => {
@@ -71,7 +67,7 @@ const Dashboard = () => {
             })
 
         // getting all users for search bar purposes
-        UserAPI.getAllUsers(headers)
+        UserAPI.getAllUsersChannel(headers)
             .then((res) => {
                 setChannelDB(res.data.data);
                 setIsChannelLoaded(true);
@@ -85,7 +81,7 @@ const Dashboard = () => {
     useEffect(() => {
         // setting interval
         const interval = setInterval(() => {
-            UserAPI.getAllUsers(headers)
+            UserAPI.getAllUsersChannel(headers)
                 .then((res) => {
                     setChannelDB(res.data.data);
                     setIsChannelLoaded(true);
@@ -119,12 +115,12 @@ const Dashboard = () => {
         let dep = 3;
         let num = 0;
 
-        if (isUserLoaded)
-            num++;
-        if (isRecentLoaded)
+        if (isUserLoaded) {
             num++
-        if (isChannelLoaded)
-            num++
+        }
+            
+        if (isRecentLoaded) num++
+        if (isChannelLoaded) num++
 
         if (num === dep)
             setIsLoaded(true);
@@ -135,6 +131,10 @@ const Dashboard = () => {
     },[isUserLoaded, isRecentLoaded, isChannelLoaded]);
 
     useEffect(() => {}, [filteredDMS, channelDB]);
+
+    const errorMsg = () => {
+        return <div>Please Sign In again to Continue 😊</div>
+    }
 
     return (
         <div className={styles.dashboard}>

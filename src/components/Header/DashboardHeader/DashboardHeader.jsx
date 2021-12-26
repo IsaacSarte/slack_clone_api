@@ -4,6 +4,9 @@ import React from 'react';
 import SearchBar from '../../Searchbar/SearchBar.js';
 import LogOut from '../../LogOut/LogOut.jsx';
 
+// Framer Motion
+import { motion } from 'framer-motion';
+
 // CSS
 import styles from './styles/dashboardheader.module.css';
 
@@ -16,7 +19,12 @@ const DashboardHeader = (props) => {
     const { userDB, setUserDB, channelDB, setChat } = props;
 
     return (
-        <div className={styles.dashboard_Header}>
+        <motion.div
+            className={styles.dashboard_Header}
+            initial={{ visibility: 'hidden', y: '-5vh' }}
+            animate={{ visibility: 'visible', y: '0vh' }}
+            transition={{ type: 'spring', bounce: 0.2, duration: 1, delay: 0 }}
+        >
             {/* Clock Icon */}
             <FiClock
                 style={{
@@ -34,7 +42,7 @@ const DashboardHeader = (props) => {
 
             {/* Log Out Component */}
             <LogOut />
-        </div>
+        </motion.div>
     )
 }
 

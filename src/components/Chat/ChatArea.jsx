@@ -11,6 +11,7 @@ import ChatMsg from "./ChatMsg.jsx";
 
 // CSS
 import './styles/chatarea.css';
+import styles from './styles/chatarea.module.css';
 
 function ChatArea(props) {
     const {
@@ -190,24 +191,27 @@ function ChatArea(props) {
             return (
                 <div className="messages-header">
                     <div className="messages-header-top-part">
-
-                        <p>
-                            <strong>{chat.uid}</strong>
-                        </p>
+                        <p> <strong>{chat.uid}</strong> </p>
                     </div>
-                    This is the very beginning of your direct message history with{" "}
-                    <button className="name">{userEmail}</button> Only the two of you are
-                    in this conversation, and no one else can join it.{" "}
-                    <a href="https://get.slack.help/hc/articles/360002063088">
-                        Learn more{" "}
+                    This is the very beginning of your direct message history with
+                    <button className="name">
+                        {userEmail}
+                    </button>
+                    Only the two of you are in this conversation, and no one else can join it.
+                    &nbsp;
+                    <a
+                        href="https://get.slack.help/hc/articles/360002063088"
+                        className="learn-more-anchor"
+                    >
+                        Learn more
                     </a>
                 </div>
             );
         else if (chatType === "Channel")
             return (
                 <div className="messages-header">
-                    <button className="name">{channelOwner}</button> created this on{" "}
-                    {monthStr} {day}. This is the very beginning of{" "}
+                    <button className="name">{channelOwner}</button> created this on
+                    {monthStr} {day}. This is the very beginning of
                     <strong>{chat.name}</strong> channel.
                 </div>
             );

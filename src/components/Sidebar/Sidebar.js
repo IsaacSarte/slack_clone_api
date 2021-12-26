@@ -8,6 +8,9 @@ import SidebarOptions from './SidebarOptions.jsx';
 import Dms from '../DMS/Dms.jsx';
 import AddChannel from '../Channels/AddChannel.jsx';
 
+// Framer Motion
+import {motion} from 'framer-motion';
+
 // CSS
 import './styles/sidebar.css';
 
@@ -38,6 +41,26 @@ const Sidebar = (props) => {
     const [channelsExpanded, setChannelsExpanded] = useState(true);
     const [isInRecents, setIsInRecents] = useState(false);
 
+    /* useEffect */
+
+    useEffect(() => {  
+        if (chat.name) {
+            setIsInRecents(true);
+            return;
+        }
+        // if channel, then do nothing
+        else if (chat.uid) {
+            let found = recentDMS.find((recents) => recents.uid === chat.uid);
+                
+            if (found) {
+                setIsInRecents(true);
+            }
+            else {
+                setIsInRecents(false);
+            }
+        }
+    },[chat, recentDMS]);
+
     // Modal State Management
     const [openModal, setOpenModal] = useState(false);
 
@@ -49,26 +72,6 @@ const Sidebar = (props) => {
     const notAvailable = () => {
         alert("Feature is not yet available");
     };
-
-    /* useEffect */
-
-    useEffect(() => {
-        if (chat.name) {
-            setIsInRecents(true);
-            return;
-        }
-        // if channel, then do nothing
-        else if (chat.uid) {
-            let found = recentDMS.find((recents) => recents.uid === chat.uid);
-            
-            if (found) {
-                setIsInRecents(true);
-            }
-            else {
-                setIsInRecents(false);
-            }
-        }
-    },[chat, recentDMS]);
 
     // Displaying Channels
     const displayChannels = channelDB ?
@@ -95,7 +98,6 @@ const Sidebar = (props) => {
             )
         }) : null;
 
-
     return (
         <div className="modal-container">
 
@@ -118,7 +120,12 @@ const Sidebar = (props) => {
                         <div className="sidebar-info">
 
                             {/* Title */}
-                            <div className="sidebar-h2">
+                            <motion.div 
+                                className="sidebar-h2"
+                                initial={{ visibility: 'hidden'}}
+                                animate={{ visibility: 'visible'}}
+                                transition={{ duration: 2, delay: 0.5 }}
+                            >
                                 <h2>Islaack</h2>
                                 &nbsp;
                                 <RiPencilFill
@@ -131,10 +138,15 @@ const Sidebar = (props) => {
                                         borderRadius: "999px",
                                     }}
                                 />
-                            </div>
+                            </motion.div>
 
                             {/* User Name */}
-                            <div className="user-name">
+                            <motion.div 
+                                className="user-name"
+                                initial={{ visibility: 'hidden'}}
+                                animate={{ visibility: 'visible'}}
+                                transition={{ duration: 2, delay: 0.5 }}
+                            >
                                 <h3>
                                 <RiCheckboxBlankCircleFill
                                     style={{
@@ -146,7 +158,7 @@ const Sidebar = (props) => {
                                 /> &nbsp;
                                 {Headers.uid} 
                                 </h3>
-                            </div>
+                            </motion.div>
 
                         </div>
 
@@ -154,53 +166,91 @@ const Sidebar = (props) => {
 
                             {/* Not Available Features */}
                             <div className="not-available" onClick={notAvailable}>
-                                <SidebarOptions Icon={RiChat1Line} title="Threads" />
-                                <SidebarOptions Icon={RiQuestionAnswerLine} title="All DMs" />
-                                <SidebarOptions Icon={RiAtLine} title="Mentions & reactions" />
-                                <SidebarOptions Icon={RiMore2Fill} title="More" />
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.5}}
+                                >
+                                    <SidebarOptions Icon={RiChat1Line} title="Threads" />
+                                </motion.div>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.55}}
+                                >
+                                    <SidebarOptions Icon={RiQuestionAnswerLine} title="All DMs" />
+                                </motion.div>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.6}}
+                                >
+                                    <SidebarOptions Icon={RiAtLine} title="Mentions & reactions" />
+                                </motion.div>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.65}}
+                                >
+                                    <SidebarOptions Icon={RiMore2Fill} title="More" />
+                                </motion.div>
                             </div>
 
                             {/* Add Channel Modal */}
-                            <div 
+                            <motion.div 
                                 onClick={showModal}
+                                initial={{opacity: 0}}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.7}}
                             >
                                 <SidebarOptions 
                                     onClick={showModal}
                                     Icon={RiAddFill}
                                     title="Add Channel"
                                 />
-                            </div>
+                            </motion.div>
                             
                         </div>
 
                     </div>
 
-                    <div
+                    <motion.div
                         className="expander-div sidebar-option-container"
                         onClick={() => setChannelsExpanded(!channelsExpanded)}
+                        initial={{opacity: 0}}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.75}}
                     >
-                        {channelsExpanded ? <RiArrowDownSFill /> : <RiArrowRightSFill />}{" "}
+                        {channelsExpanded ? <RiArrowDownSFill /> : <RiArrowRightSFill />}
                         &nbsp;Channels
-
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                         className={
                             channelsExpanded ? "direct-messages expanded" : "direct-messages"
                         }
+                        initial={{opacity: 0}}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.75}}
                     >
                         {displayChannels}
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                         className="expander-div sidebar-option-container"
                         onClick={() => setDmsExpanded(!dmsExpanded)}
+                        initial={{opacity: 0}}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.75}}
                     >
-                        {dmsExpanded ? <RiArrowDownSFill /> : <RiArrowRightSFill />}{" "}
+                        {dmsExpanded ? <RiArrowDownSFill /> : <RiArrowRightSFill />}
                         &nbsp;Direct Messages
-                    </div>
-                    <div 
+                    </motion.div>
+                    <motion.div 
                         className={
                             dmsExpanded ? "direct-messages expanded" : "direct-messages"
                         }
+                        initial={{opacity: 0}}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.75}}
                     >
                         {!isInRecents && (
                          <Dms 
@@ -221,7 +271,7 @@ const Sidebar = (props) => {
                                 </div>
                             );
                         })}
-                    </div>
+                    </motion.div>
 
                 </div>
 

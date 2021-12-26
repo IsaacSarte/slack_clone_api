@@ -29,19 +29,19 @@ export const getMessages = (header, id, type) => {
 
 // create channel function
 export const createChannel = (header, body) => {
-    const url = API_URL + 'channels';
+    const url = API_URL + `channels`;
     return axios.post(url, body, {headers: header});
 }
 
 // get all users function
-export const getAllUsers = (header) => {
-    const url = API_URL + 'channels';
+export const getAllUsersChannel = (header) => {
+    const url = API_URL + `channels`;
     return axios.get(url, {headers: header});
 }
 
 // get owned channels function
 export const getOwnedChannels = (header) => {
-    const url = API_URL + 'channels/owned';
+    const url = API_URL + `channels/owned`;
     return axios.get(url, {headers: header});
 }
 
@@ -69,6 +69,6 @@ export const listUsers = (header) => {
 
 // get recent function
 export const getRecent = (header) => {
-    const url = API_URL + 'users';
+    const url = API_URL + 'users/recent';
     return axios.get(url, { headers: header });
 }
