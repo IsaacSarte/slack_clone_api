@@ -34,7 +34,7 @@ const ChatMsg = (props) => {
                     <div className="msgWrapper">
                         <div className="titleWrapper">
                             <p className="sender">
-                                <strong>{sender.uid}</strong>
+                                <span>{sender.uid}</span>
                             </p>
                             <p className="time">{formatTime(time)}</p>
                         </div>

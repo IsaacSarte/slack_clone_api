@@ -75,7 +75,8 @@ const ChatHeader = ({ chat, chatType, userDB, setUserDB }) => {
 
                 {chatType === "User" ? (
                     <div className="chat-title">
-                        <h1> {chat.uid}</h1>
+                        <h1>{chat.uid}</h1> <br />
+                        <hr />
                     </div>
                 ) : (
                     <div className="channel-header-title" onClick={getChannelDetails}>

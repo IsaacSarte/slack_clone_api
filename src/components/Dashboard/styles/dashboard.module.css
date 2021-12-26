@@ -4,6 +4,8 @@
 
 .dashboard {
     display: grid;
+    background-color: #1A1D21;
+    color: white;
 }
 
 .main_Container {

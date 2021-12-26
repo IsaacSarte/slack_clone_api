@@ -35,4 +35,17 @@
 
 .chat-title {
     padding: 10px;
+    margin-left: 1rem;
+    margin-top: 1.35rem;
+}
+
+.chat-title h1 {
+    font-weight: 400;
+}
+
+.chat-title hr {
+    width: 105.5%;
+    border: 0;
+    border-top: 1px solid #49274b;
+    transform: translateX(-5rem);
 }

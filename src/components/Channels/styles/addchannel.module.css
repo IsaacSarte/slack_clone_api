@@ -1,4 +1,4 @@
-.add-ch-background {
+.add_Channel_Background {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
@@ -6,10 +6,10 @@
     display: grid;
     place-items: center;
     z-index: 99;
-    transform: translateY(calc(-1 * var(--header-height)));
+    transform: translateY(calc(-1 * 40px));
 }
 
-.add-ch-modal-wrapper {
+.add_Channel_modal_wrapper {
     width: 600px;
     height: 350px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -18,10 +18,10 @@
     position: relative;
     border-radius: 10px;
     z-index: 99;
-    transform: translateY(calc(-1 * var(--header-height)));
+    transform: translateY(calc(-1 * 40px));
 }
 
-.add-ch-modal-content {
+.add_Channel_Modal_Content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +33,51 @@
     padding-top: 40px;
 }
 
-.close-modal-button {
+.add_Channel_Header {
+    padding-bottom: 20px;
+}
+
+.add_Channel_Content {
+    padding-bottom: 15px;
+    font-size: 18px;
+    color: #141414;
+}
+
+.nameLabel {
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Form */
+
+.add_Channel_Form {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Input */
+
+.add_Channel_Input {
+    width: 470px;
+    height: 4vh;
+    padding-left: 10px;
+}
+
+/* Button */
+
+.add_ChannelBtn {
+    padding: 0.5rem 5rem;
+    background-color: #347a5a;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.closeBtn {
     cursor: pointer;
     position: absolute;
     top: 20px;
@@ -42,45 +86,4 @@
     height: 32px;
     padding: 0;
     z-index: 10;
-}
-
-.addch-form-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.add-ch-input {
-    width: 470px;
-    height: 4vh;
-    padding-left: 10px;
-}
-
-.sign-up-button {
-    margin-top: 20px;
-}
-
-.add-ch-content {
-    padding-bottom: 15px;
-    font-size: 18px;
-    color: #141414;
-}
-
-.add-ch-header {
-    padding-bottom: 20px;
-}
-
-.name-label {
-    padding-bottom: 15px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.add-ch-button {
-    width: 200px;
-    background-color: #347a5a;
-    color: #fff;
-    border: 0;
-    height: 30px;
-    border-radius: 5px;
-    margin-top: 25px;
 }

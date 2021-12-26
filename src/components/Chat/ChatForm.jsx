@@ -77,7 +77,6 @@ const ChatForm = (props) => {
     return (
         <div className="ChatForm">
             <div className="chat-form-container">
-                {/* <form onSubmit={handleSubmit}> */}
                 <input
                     className="chat-input"
                     type="text"
@@ -146,7 +145,6 @@ const ChatForm = (props) => {
                     </div>
                     <input type="submit" value="send" className="send"></input>
                 </div>
-                {/* </form> */}
             </div>
         </div>
     );

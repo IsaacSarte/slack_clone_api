@@ -173,13 +173,17 @@ function ChatArea(props) {
                     <div className="messages-header-top-part">
 
                         <p>
-                            <strong>{chat.uid}</strong> (you)
+                            <span className="messages-receiver">{chat.uid}</span> (you)
                         </p>
                     </div>
-                    <strong>This is your space.</strong> Draft messages, list your to-dos,
-                    or keep links and files handy. You can also talk to yourself here, but
-                    please bear in mind you’ll have to supply both sides of the
-                    conversation.
+                    <span className="messages-header-title">This is your space.</span>
+                    &nbsp;
+                    <span className="messages-header-info">
+                        Draft messages, list your to-dos,
+                        or keep links and files handy. You can also talk to yourself here, but
+                        please bear in mind you’ll have to supply both sides of the
+                        conversation.
+                    </span>
                 </div>
             );
         else if (chatType === "User")

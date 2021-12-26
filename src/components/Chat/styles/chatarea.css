@@ -17,6 +17,18 @@
 
 .messages-header {
     margin: 20px;
+    font-size: 1.15rem;
+}
+
+.messages-receiver,
+.messages-header .messages-header-title {
+    font-weight: 550;
+    color: rgba(255, 255, 255, 0.582);
+}
+
+.messages-header-info {
+    font-weight: 400;
+    color: white;
 }
 
 .messages-header-top-part {
