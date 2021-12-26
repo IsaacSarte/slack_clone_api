@@ -5,7 +5,7 @@ import Hand from '../components/Hand/Hand.jsx';
 import Header from '../components/Header/Header';
 
 // CSS
-import styles from './home.module.css';
+import styles from './styles/home.module.css';
 
 const Home = () => {
     return (
@@ -16,4 +16,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;

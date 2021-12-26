@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 // CSS
-import styles from './hand.module.css';
+import styles from './styles/hand.module.css';
 
 const Hand = () => {
     return (
@@ -22,4 +22,4 @@ const Hand = () => {
     )
 }
 
-export default Hand
+export default Hand;
