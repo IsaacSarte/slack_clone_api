@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.result {
+  background-color: #000000fa;
+  color: white;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px 20px;
+  align-items: center;
+  cursor: pointer;
+  width: 500px;
+  transition: 50ms all ease-in;
+}
+
+.result:hover {
+  background-color: #1264A3;
+}

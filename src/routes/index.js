@@ -12,7 +12,8 @@ import AuthRoutes from './AuthRoutes';
 import ProtectedRoutes from './ProtectedRoutes';
 
 import SignIn from '../components/SignIn/SignIn.jsx';
-import Dashboard from '../components/Dashboard/Dashboard.js';
+// import Dashboard from '../components/Dashboard/Dashboard.js';
+import Dashboard from '../components/main/Dashboard/Dashboard.js';
 
 
 const routes = () => {

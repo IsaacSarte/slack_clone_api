@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-Header {
+  background-color: #6715EB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  z-index: 999;
+}
+
+/* Button */
+
+.logout-Btn {
+  margin-top: -1.5rem;
+}

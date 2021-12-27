@@ -1,0 +1,38 @@
+.error-Message {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 200;
+  border-radius: 50%;
+}
+
+.notif-Txt {
+  padding: 1rem 2rem;
+  animation: fade-out 4s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.error {
+  background-color: rgb(112, 2, 2);
+  color: white;
+}
+
+.success {
+  background-color: #1264A3;
+  color: white;
+}

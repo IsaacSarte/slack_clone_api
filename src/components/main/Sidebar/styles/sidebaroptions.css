@@ -1,0 +1,30 @@
+.sidebar-Option-Container {
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  cursor: pointer;
+  padding: 9px 18px 9px;
+}
+
+.sidebar-Option-Container:hover {
+  opacity: 0.9;
+  background-color: #340e36;
+}
+
+.sidebar-Option-Container h3 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.sidebar-Option-Container span {
+  padding-right: 16px;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.sidebar-Option-Channel {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  cursor: pointer;
+}

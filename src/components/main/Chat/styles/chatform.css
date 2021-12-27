@@ -1,0 +1,77 @@
+.chat-Form {
+  width: 100%;
+  background: #1A1D21;
+}
+
+.chat-form-container {
+  margin: 0px 20px 20px;
+  border: 1px solid #565856;
+  border-radius: 2.5px;
+}
+
+.chat-input {
+  background-color: #222529;
+  resize: none;
+  width: 100%;
+  height: calc(0.8em + 30px);
+  padding: 10px 10px 9px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  font-family: inherit;
+  font-size: 0.9em;
+  color: white;
+  font-weight: 400;
+}
+
+.chat-input:focus {
+  border-bottom: 1px solid #222529;
+  outline: none;
+}
+
+.chat-form-icons-container {
+  height: calc(0.8em + 30px);
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.281);
+}
+
+.send {
+  display: none;
+}
+
+.chat-input:focus+.chat-form-icons-container {
+  color: white;
+}
+
+.chat-form-icons {
+  display: grid;
+  place-items: center;
+  height: calc(1.2em + 10px);
+  width: calc(1.2em + 10px);
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+}
+
+.chat-form-icons:hover {
+  background-color: #222529;
+  cursor: pointer;
+}
+
+.disabled-icons {
+  cursor: none;
+}
+
+.icons-container {
+  display: flex;
+  flex-flow: row;
+}
+
+.send-icon {
+  margin-left: 5px;
+}

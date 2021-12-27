@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 40px);
+  width: calc(100vw - 260px);
+}
