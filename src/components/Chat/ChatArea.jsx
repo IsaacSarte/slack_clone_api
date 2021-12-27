@@ -13,7 +13,7 @@ import ChatMsg from "./ChatMsg.jsx";
 import './styles/chatarea.css';
 import styles from './styles/chatarea.module.css';
 
-function ChatArea(props) {
+const ChatArea = (props) => {
     const {
         userId,
         userEmail,
@@ -35,6 +35,7 @@ function ChatArea(props) {
         setConvo([]); // reset all messages before going into the next one
         retrieveMsgs(userId, chatType, false);
     }, [userId, header, setConvo, chatType]);
+
     useEffect(() => {
         if (header["access-token"] === undefined || userId === undefined) {
             return;
@@ -127,6 +128,7 @@ function ChatArea(props) {
             }
         });
     };
+
     const displayMsgs = !convo
         ? "Loading messages..."
         : header.uid === userEmail
@@ -210,8 +212,8 @@ function ChatArea(props) {
         else if (chatType === "Channel")
             return (
                 <div className="messages-header">
-                    <button className="name">{channelOwner}</button> created this on
-                    {monthStr} {day}. This is the very beginning of
+                    <button className="name">{channelOwner}</button> created this on&nbsp;
+                    {monthStr} {day}. This is the very beginning of&nbsp;
                     <strong>{chat.name}</strong> channel.
                 </div>
             );

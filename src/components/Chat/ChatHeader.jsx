@@ -16,7 +16,10 @@ import './styles/chatheader.css';
 // Icons
 import { MdLock } from "react-icons/md";
 
-const ChatHeader = ({ chat, chatType, userDB, setUserDB }) => {
+const ChatHeader = (props) => {
+
+    // Props
+    const { chat, chatType, userDB, setUserDB } = props;
 
     /* State Management */
 
@@ -82,7 +85,7 @@ const ChatHeader = ({ chat, chatType, userDB, setUserDB }) => {
                     <div className="channel-header-title" onClick={getChannelDetails}>
                         <div className="header-child">
                             <h1 onClick={showAllMemberModal}>
-                                {" "}
+                                &nbsp;
                                 <MdLock style={{ fontSize: "1.5rem" }} />
                                 {chat.name}
                             </h1>

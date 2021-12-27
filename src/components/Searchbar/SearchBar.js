@@ -1,17 +1,17 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, { useState, useCallback, useEffect } from "react";
 
 // API
-import * as UserAPI from '../../UserAPI.js';
+import * as UserAPI from "../../UserAPI";
 
 // Helpers
-import Headers from '../../Helpers/Headers';
+import Headers from "../../Helpers/Headers";
 
 // Components
-import SearchResults from './SearchResults.js';
-import Msg from '../Messages/Msg.js';
+import SearchResults from "./SearchResults.js";
+import Msg from "../Messages/Msg.js";
 
 // CSS
-import styles from './searchbar.module.css';
+import "./searchbar.css";
 
 // Icons
 import { BiSearch } from "react-icons/bi";
@@ -20,13 +20,12 @@ const SearchBar = (props) => {
 
     // Props
     const {
+        setChatWith,
         userDB,
         setUserDB,
-        placeholder,
-        setChatWith,
-        setNewMember,
+        searchBarFor,
         onAddMember,
-        searchFor
+        setNewMember,
     } = props;
 
     /* State Management */
@@ -34,51 +33,46 @@ const SearchBar = (props) => {
     const [searchEntry, setSearchEntry] = useState("");
     const [searchSuggestions, setSearchSuggestions] = useState([]);
     const [isActive, setIsActive] = useState(false);
-    const [responseMsg, setResponseMsg] = useState("");
     const [errors, setErrors] = useState(false);
+    const [responseMsg, setResponseMsg] = useState("");
 
     // useCallback
     const handleClick = useCallback(
         (e) => {
-          let cl = e.target.classList;
-          if (cl.contains("input-search") || cl.contains("result")) {
-          } else {
+        let cl = e.target.classList;
+        if (cl.contains("input-search") || cl.contains("result")) {
+        } else {
             setIsActive(false);
-          }
+        }
         },
         [setIsActive]
     );
 
     /* useEffect */
-
     useEffect(() => {
-        // setting interval
         const showMsgTimer = setInterval(() => {
-            setResponseMsg("");
+        setResponseMsg("");
         }, 5000);
-
         return () => {
-            clearInterval(showMsgTimer);
+        clearInterval(showMsgTimer);
         };
-    },[responseMsg]);
+    }, [responseMsg]);
 
     useEffect(() => {
         document.addEventListener("click", handleClick);
         return () => document.removeEventListener("click", handleClick);
-    },[handleClick]);
+    }, [handleClick]);
 
     useEffect(() => {
         if (header["access-token"] === undefined) return;
-
         if (userDB[0] === undefined) {
-          alert("still loading db");
-          return;
+        alert("still loading db");
+        return;
         }
-        
         setSearchSuggestions(
-          userDB.filter((user) => user.uid.includes(searchEntry))
+        userDB.filter((user) => user.uid.includes(searchEntry))
         );
-    },[searchEntry, userDB, header]);
+    }, [searchEntry, userDB, header]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -104,102 +98,107 @@ const SearchBar = (props) => {
 
     const getAllUsers = () => {
         UserAPI.listUsers(header)
-            .then((res) => {
-                setUserDB(res.data.data);
-            })
-            .catch((e) => {
-                console.log("Failed to get all users");
-            });
-    }
+        .then((res) => {
+            setUserDB(res.data.data);
+        })
+        .catch((e) => {
+            console.log("Failed to get all users");
+        });
+    };
 
     let suggestions = searchSuggestions
-    ? searchSuggestions.map((user) => {
-        return (
-          <SearchResults
-            key={user.id}
-            user={user}
-            setSearchEntry={setSearchEntry}
-            handleSubmit={handleSubmit}
-            setNewMember={setNewMember}
-          />
-        );
-      })
+        ? searchSuggestions.map((user) => {
+            return (
+            <SearchResults
+                key={user.id}
+                user={user}
+                setSearchEntry={setSearchEntry}
+                handleSubmit={handleSubmit}
+                setNewMember={setNewMember}
+            />
+            );
+        })
     : null;
 
     return (
         <div
             className={
-                searchFor === 'AddMembers' ? 
-                styles.add_member_form_container : 
-                styles.input_and_button_wrapper
+                searchBarFor === "AddMembers"
+                ? "add-member-form-container"
+                : "input-and-button-wrapper"
             }
         >
 
             {/* Search Container */}
-            <div className={styles.searchContainer}>
-                <div className={styles.searchBar}>
-                    <form
-                        className={styles.form_searchbar}
-                        onSubmit={
-                            searchFor === "AddMembers" ? 
-                            onAddMember : handleSubmit
+            <div className="container-search">
+                <div className="searchBar">
+                
+                {/* Form */}
+                <form
+                    className="form-searchbar"
+                    onSubmit={
+                        searchBarFor === "AddMembers" ? 
+                        onAddMember : handleSubmit
+                    }
+                >
+                    <input
+                        type="text"
+                        placeholder="Search for members"
+                        onChange={(e) => {
+                            e.target.value !== "" ? setIsActive(true) : setIsActive(false);
+                            setSearchEntry(e.target.value);
+                            if (searchBarFor === "AddMembers") 
+                                setNewMember(e.target.value);
+                        }}
+                        onFocus={(e) => {
+                            getAllUsers();
+                            e.target.value !== "" ? setIsActive(true) : setIsActive(false);
+                        }}
+                        className={
+                            searchBarFor === "AddMembers" ? 
+                            "input-search-add-members" : 
+                            "input-search"
                         }
-                    >
-                        <input
-                            type="text"
-                            placeholder="Search for members"
-                            onChange={(e) => {
-                                e.target.value !== "" ? setIsActive(true) : setIsActive(false);
-                                setSearchEntry(e.target.value);
-                                if (searchFor === "AddMembers") 
-                                    setNewMember(e.target.value);
-                            }}
-                            onFocus={(e) => {
-                                getAllUsers();
-                                e.target.value !== "" ? setIsActive(true) : setIsActive(false);
-                            }}
-                            className={
-                                searchFor === "AddMembers" ? 
-                                styles.input_add : 
-                                styles.input_search
-                            }
-                            value={searchEntry}
-                        />
-                    </form>
+                        value={searchEntry}
+                    />
+                </form>
+
                 </div>
 
-                <div className={styles.searchActive}>
+                <div>
                     {isActive ? (
                         <div
-                            className={
-                                searchFor === 'AddMembers' ?
-                                styles.add_mem_sug : 
-                                styles.suggestions
-                            }
                             onClick={(e) => {
                                 setIsActive(false);
                             }}
+                            className={
+                                searchBarFor === "AddMembers" ?
+                                "add-mem-suggestion" : 
+                                "Suggestions"
+                            }
                         >
                             {suggestions}
                         </div>
                     ) : null}
                 </div>
+                
             </div>
 
             {/* Button */}
             <button
                 type="submit"
                 className={
-                    searchFor === 'AddMembers' ?
-                    styles.searchBtn : 
-                    styles.headerBtn
+                    searchBarFor === "AddMembers" ? 
+                    "search-add-member-btn" : 
+                    "header-btn"
                 }
                 onClick={
-                    searchFor === 'AddMembers' ? 
-                    onAddMember : handleSubmit
+                    searchBarFor === "AddMembers" 
+                    ? onAddMember : 
+                    handleSubmit
                 }
             >
-                {searchFor === 'AddMembers' ? 'Add Member' : <BiSearch />}
+                {searchBarFor === "AddMembers" ? "Add member" : <BiSearch />}
             </button>
 
             {responseMsg && 
@@ -209,7 +208,7 @@ const SearchBar = (props) => {
                 />
             }
         </div>
-    )
+    );
 }
 
 export default SearchBar;

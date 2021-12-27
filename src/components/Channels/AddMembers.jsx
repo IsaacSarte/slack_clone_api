@@ -11,13 +11,18 @@ import SearchBar from "../Searchbar/SearchBar.js";
 import Msg from "../Messages/Msg.js";
 
 // CSS
+import './styles/addmembers.css';
 
 // Icons
 import { MdClose } from "react-icons/md";
 import { RiUserAddLine } from "react-icons/ri";
 
-function AddMembers(props) {
+const AddMembers = (props) => {
+
+  // Props
   const { chat, userDB } = props;
+
+  /* State Management */
   const [userArray, setUserArray] = useState([]);
   const [header] = useState(Headers);
   const [newMember, setNewMember] = useState("");
@@ -41,6 +46,7 @@ function AddMembers(props) {
             setResponseMsg("");
             setResponseMsg(res.data.errors);
           } else {
+            console.log(`Added ${found.uid} to ${chat.name}!`);
             setErrors(false);
             setResponseMsg("");
             setResponseMsg(`Added ${found.uid} to ${chat.name}!`);
@@ -118,7 +124,7 @@ function AddMembers(props) {
                 />
               </div>
             </div>
-          </div>{" "}
+          </div>
         </div>
       ) : null}
 

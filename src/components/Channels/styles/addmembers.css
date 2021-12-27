@@ -7,8 +7,8 @@
     justify-content: center;
     align-items: center;
     z-index: 99;
-    transform: translate(calc(-1 * var(--sidebar-width)),
-            calc(-1 * var(--header-height)));
+    transform: translate(calc(-1 * 260px),
+            calc(-1 * 40px));
 }
 
 .add-mem-modal-wrapper {
