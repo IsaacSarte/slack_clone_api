@@ -6,6 +6,7 @@ import ChatForm from "./ChatForm";
 import ChatHeader from "./ChatHeader";
 
 // CSS
+import styles from '../../styles/scroll.module.css';
 import "./styles/chat.css";
 
 

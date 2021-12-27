@@ -10,6 +10,9 @@ import Headers from "../../../Helpers/Headers";
 import AddMembers from "../Channel/AddMembers";
 import ShowChannelMembers from "../Channel/ShowChannelMembers";
 
+// Framer Motion
+import {motion} from 'framer-motion';
+
 // CSS
 import "./styles/chatheader.css";
 
@@ -80,19 +83,34 @@ const ChatHeader = (props) => {
           </div>
 
           {chatType === "User" ? (
-            <div className="chat-title">
-                <h1>{chat.uid}</h1> <br />
+            <div 
+              className="chat-title"
+            >
+                <motion.h1
+                  initial={{opacity: 0, marginLeft: '-10rem' }}
+                  animate={{ opacity: 1, marginLeft: '1rem'}}
+                  transition={{type: 'spring', bounce: 0.5, duration: 1, delay: 0.5}}
+                >
+                  {chat.uid}
+                </motion.h1> 
+                <br />
                 <hr />
             </div>
           ) : (
             <div className="channel-header-title" onClick={getChannelDetails}>
               <div className="header-child">
-                <h1 onClick={openAllMemberModal}>
-                  &nbsp;
+                <motion.h1 
+                  onClick={openAllMemberModal}
+                  initial={{opacity: 0, marginLeft: '-10rem' }}
+                  animate={{ opacity: 1, marginLeft: '1rem'}}
+                  transition={{type: 'spring', bounce: 0.5, duration: 1, delay: 0.5}}
+                >
                   <MdLock style={{ fontSize: "1.5rem" }} />
-                  {chat.name}<br />
+                  &nbsp;
+                  {chat.name}
+                  <br />
                   <hr />
-                </h1>
+                </motion.h1>
               </div>
               <div className="header-child">
                 <button onClick={openMemberModal} className="add-people-button">
