@@ -65,6 +65,20 @@
     height: 0rem;
 }
 
+/* ForEd Text */
+
+.forEd_Text {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.forEd_Text span {
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 /* Custom Shape */
 
 .custom_shape {

@@ -194,6 +194,15 @@ const SignIn = () => {
                 </form>
             </motion.div>
 
+            <motion.div
+                className={styles.forEd_Text}
+                initial={{ visibility: 'hidden' }}
+                animate={{ visibility: 'visible' }}
+                transition={{ duration: 1, delay: 1.25 }}
+            >
+                <span>For Educational Purposes Only</span>
+            </motion.div>
+
             {/* Shape Divider */}
             <div className={styles.custom_shape}>
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

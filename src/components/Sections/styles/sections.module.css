@@ -27,3 +27,42 @@
     border-radius: 10px;
     border: 5px solid #6E446F;
 }
+
+/* Shape Divider */
+
+.section_shape_Divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.section_shape_Divider svg {
+    position: relative;
+    display: block;
+    width: calc(168% + 1.3px);
+    height: 300px;
+}
+
+.section_shape_Divider .shape_FillS {
+    fill: #FFFFFF;
+}
+
+/* Footer */
+
+.footer_Text {
+    position: absolute;
+    z-index: 999;
+    padding-top: 12.5rem;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    right: auto;
+    left: 60%;
+    margin-left: 3rem;
+    bottom: 0;
+    transform: rotate(-180deg);
+}
