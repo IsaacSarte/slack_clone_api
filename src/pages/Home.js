@@ -14,7 +14,12 @@ import styles from './styles/home.module.css';
 const Home = () => {
     return (
         <div className={styles.home}>
-            <Header />
+            {/* Header */}
+            <div className={styles.header}>
+                <Header />
+            </div>
+            
+            {/* Hand Loading */}
             <Hand />
 
             {/* Section */}

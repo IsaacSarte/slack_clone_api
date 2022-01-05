@@ -17,25 +17,13 @@
     grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
 }
 
-.section_Container_Two {
-    padding-top: 25vh;
-    display: grid;
-    place-content: center;
-    left: 25%;
-}
-
 /* Section Card */
 
 .section_Card {
     margin: 0 auto;
     width: 25vw;
-    height: 200px;
+    height: 250px;
     background-color: white;
     border-radius: 10px;
-}
-
-.section_Card_Two {
-    width: 50vw;
-    height: 300px;
-    background-color: white;
+    border: 5px solid #6E446F;
 }

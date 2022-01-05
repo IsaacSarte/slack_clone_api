@@ -27,18 +27,6 @@ const Sections = () => {
                     </div>
                 </div>
 
-                <div className={styles.section_Container_Two}>
-                    <div className={styles.section_Card_Two}>
-
-                    </div>
-                </div>
-
-                <div>
-                    <footer className={styles.section_Footer}>
-
-                    </footer>
-                </div>
-
             </section>
 
         </>
