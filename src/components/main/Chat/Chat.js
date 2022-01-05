@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 // Components
-import ChatArea from "./ChatArea";
-import ChatForm from "./ChatForm";
-import ChatHeader from "./ChatHeader";
+import ChatArea from "./ChatArea.jsx";
+import ChatForm from "./ChatForm.jsx";
+import ChatHeader from "./ChatHeader.jsx";
 
 // CSS
-import styles from '../../styles/scroll.module.css';
 import "./styles/chat.css";
 
 
