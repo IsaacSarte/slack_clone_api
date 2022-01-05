@@ -7,8 +7,8 @@ import * as UserAPI from "../../../UserAPI";
 import Headers from "../../../Helpers/Headers";
 
 // Components
-import SearchResult from "./SearchResult";
-import ErrMsg from "../ErrorMsg/ErrMsg.js";
+import SearchResult from "./SearchResult.jsx";
+import ErrMsg from "../ErrorMsg/ErrMsg.jsx";
 
 // CSS
 import "./styles/searchbar.css";

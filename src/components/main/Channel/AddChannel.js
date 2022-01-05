@@ -7,7 +7,7 @@ import * as UserAPI from "../../../UserAPI";
 import Headers from "../../../Helpers/Headers";
 
 // Components
-import ErrMsg from "../ErrorMsg/ErrMsg.js";
+import ErrMsg from "../ErrorMsg/ErrMsg.jsx";
 
 // Framer Motion
 import {motion} from 'framer-motion';

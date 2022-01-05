@@ -5,8 +5,8 @@ import Headers from "../../../Helpers/Headers";
 
 // Components
 import AddChannel from "../Channel/AddChannel";
-import SidebarOptions from "./SidebarOptions";
-import DirectMessages from "../DirectMessages/DirectMessages";
+import SidebarOptions from "./SidebarOptions.jsx";
+import DirectMessages from "../DirectMessages/DirectMessages.jsx";
 
 // Framer Motion
 import {motion} from 'framer-motion';
