@@ -13,3 +13,14 @@
 === Landing Page ===
 
 1. Home with Sections
+
+
+--- Bugs ---
+
+1. useEffect dependency warnings
+
+A. Line 122 in Dashboard.jsx
+B. Line 86 in ChatArea.jsx
+C. Line 67 in ChatArea.jsx
+D. Line 57 in ChatArea.jsx
+E. Line 44 in ChatArea.jsx

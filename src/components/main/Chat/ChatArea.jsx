@@ -41,6 +41,7 @@ const ChatArea = (props) => {
 
     setConvo([]); // reset all messages before going into the next one
     retrieveMsgs(userId, chatType, false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, header, setConvo, chatType]);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const ChatArea = (props) => {
 
     if (clen > 1)
       setPrevLen(clen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -64,7 +66,7 @@ const ChatArea = (props) => {
         setPrevLen(clen);
       }
     }
-  }, [chat, convo]);
+  }, [prevLen, chat, convo]);
 
   useEffect(() => {
     // enables "real time" chat!!!! w/ delay of your choice, 1 sec and above much better
@@ -83,7 +85,8 @@ const ChatArea = (props) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [userId, chatType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [header, setRecentDms, userId, chatType]);
 
   const scrollToBottom = () => {
     msgEnd.current.scrollIntoView({ behavior: "smooth" });

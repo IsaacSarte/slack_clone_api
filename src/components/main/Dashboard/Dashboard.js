@@ -119,7 +119,7 @@ const Dashboard = () => {
       let found = userDb.find((user) => user.uid === headers.uid);
 
       setChat(found);
-    }, [usersAreLoaded, recentsAreLoaded, channelsAreLoaded]);
+    }, [headers.uid, userDb, usersAreLoaded, recentsAreLoaded, channelsAreLoaded]); 
 
     useEffect(() => {}, [filteredRecents, channelDb]);
 
