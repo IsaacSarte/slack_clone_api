@@ -65,6 +65,7 @@ const Sections = () => {
                     >
                         <footer>
                             <span>For Educational Purposes Only</span>
+                            <span className={styles.footer_SecText}> - Isaac Sarte</span>
                         </footer>
                     </motion.div>
                 </motion.div>
