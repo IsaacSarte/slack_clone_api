@@ -10,6 +10,14 @@
 
 /* Section Container */
 
+.section_Hand {
+    color: #B2856A;
+}
+
+.section_Hand i {
+    transform: rotate(-25deg);
+}
+
 .section_Container {
     padding-top: 5rem;
     display: grid;
@@ -43,8 +51,8 @@
 .section_shape_Divider svg {
     position: relative;
     display: block;
-    width: calc(168% + 1.3px);
-    height: 300px;
+    width: calc(160% + 1.3px);
+    height: 200px;
 }
 
 .section_shape_Divider .shape_FillS {
@@ -56,7 +64,7 @@
 .footer_Text {
     position: absolute;
     z-index: 999;
-    padding-top: 12.5rem;
+    padding-top: 7.5rem;
     color: black;
     font-size: 1.5rem;
     font-weight: 600;

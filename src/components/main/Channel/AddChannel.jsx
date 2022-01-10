@@ -52,12 +52,14 @@ const AddChannel = (props) => {
       .then((res) => {
         if (res.data.errors !== undefined) {
           setErrors(true);
+          setShowModal(false);
           setResponseMsg("");
           console.log(res);
           setResponseMsg(res.data.errors[0]);
         }
         else {
           setErrors(false);
+          setShowModal(false);
           setResponseMsg("");
           setResponseMsg(`New channel ${res.data.data.name} has been created!`);
         }

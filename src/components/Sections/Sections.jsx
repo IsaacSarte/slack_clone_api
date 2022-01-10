@@ -13,7 +13,7 @@ const Sections = () => {
             <section>
 
                 <div className={styles.section_Top_Text}>
-                    <h1 className={styles.section_H1}>👋🏽 Welcome Back</h1>
+                    <h1 className={styles.section_H1}><span className={styles.section_Hand}><i class="fas fa-hand-paper"></i></span> Welcome Back</h1>
                 </div>
 
                 <div className={styles.section_Container}>
