@@ -93,6 +93,10 @@ const Sections = () => {
 
             </section>
 
+            <div className={styles.phone_Message}>
+                <h1><strong>Phone and Tablet View Currently Not Supported 😊</strong></h1>
+            </div>
+
         </>
     )
 }

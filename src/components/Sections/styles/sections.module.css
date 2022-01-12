@@ -48,7 +48,7 @@
 /* Shape Divider */
 
 .section_shape_Divider {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -86,4 +86,26 @@
 
 .footer_SecText {
     font-weight: 400;
+}
+
+/* Phone and Tablet Message */
+
+.phone_Message {
+    display: none;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 768px) {
+    section {
+        display: none;
+    }
+
+    .phone_Message {
+        padding-top: 10vh;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        justify-content: center;
+    }
 }
