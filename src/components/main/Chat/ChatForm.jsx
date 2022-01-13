@@ -6,6 +6,10 @@ import * as UserAPI from "../../../UserAPI";
 // Helpers
 import Headers from "../../../Helpers/Headers";
 
+// Markdown
+import ReactMarkdown from "react-markdown";
+import { Editor } from 'react-draft-wysiwyg';
+
 // Emoji Picker
 import Picker from 'emoji-picker-react';
 
@@ -100,9 +104,10 @@ const ChatForm = (props) => {
   return (
     <div className="chat-Form">
       <div className="chat-form-container">
-        <motion.input
+
+        <motion.textarea
           className="chat-input"
-          type="text"
+          autoFocus
           onChange={(e) => {
             setChatInput(e.target.value);
           }}
@@ -113,6 +118,14 @@ const ChatForm = (props) => {
           transition={{ duration: 2, delay: 0 }}
 
         />
+
+        {/* <Editor
+          onChange={(e) => {
+            setChatInput(e.target.value);
+          }}
+          value={chatInput}
+          onKeyUp={(e) => handleKeyUp(e)}
+        /> */}
 
         {/* Left Side Icons */}
         <div className="chat-form-icons-container">
