@@ -309,7 +309,9 @@ const ChatForm = (props) => {
       {/* Speechly */}
       <div className="chat-talk-container">
         <PushToTalkButtonContainer>
-          <PushToTalkButton />
+          <PushToTalkButton
+            size="4rem"
+          />
           <ErrorPanel />
         </PushToTalkButtonContainer>
       </div>

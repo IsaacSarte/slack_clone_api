@@ -17,9 +17,8 @@
 
 .chat-talk-container {
   position: fixed;
-  transform: translate(90rem, -47rem);
-  /* overflow: hidden; */
-  width: 100px;
+  transform: translate(87rem, -48rem);
+  z-index: 99;
 }
 
 .chat-input {
