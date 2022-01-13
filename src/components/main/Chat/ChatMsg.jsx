@@ -11,6 +11,7 @@ import ReactMarkdown from "react-markdown";
 // Components
 
 // CSS
+import styles from '../../styles/scroll.module.css';
 import "./styles/chatmsg.css";
 
 // Icons

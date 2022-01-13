@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
-    scrollbar-width: thin;
-    background: #14101A;
+    width: 10px;
+    background: #b38deb;
     border-radius: 15px;
 }
 
@@ -9,13 +9,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
+    border-radius: 15px;
     background: linear-gradient(to bottom, #14101A, #6715EB);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #8A4BF0;
-}
-
-* {
-    scroll-behavior: smooth;
+    background: #201236;
 }

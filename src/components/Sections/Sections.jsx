@@ -3,9 +3,6 @@ import React from 'react';
 // Framer Motion
 import { motion } from 'framer-motion';
 
-// Speechly
-import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui';
-
 // CSS
 import styles from './styles/sections.module.css';
 
@@ -93,14 +90,6 @@ const Sections = () => {
                         </footer>
                     </motion.div>
                 </motion.div>
-
-                {/* Speechly */}
-                <div className={styles.section_talk}>
-                    <PushToTalkButtonContainer>
-                        <PushToTalkButton />
-                        <ErrorPanel />
-                    </PushToTalkButtonContainer>
-                </div>
 
             </section>
 

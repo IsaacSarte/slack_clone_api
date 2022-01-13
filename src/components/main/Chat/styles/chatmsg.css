@@ -13,11 +13,13 @@
 .body {
   /* margin-top: 2px; */
   padding-top: 0.5rem;
+  padding-right: 0.25rem;
   word-break: break-all;
 }
 
 .second-container {
   padding-top: 0.25rem;
+  padding-right: 0.25rem;
   display: flex;
   flex-direction: row;
   min-height: 23px;
