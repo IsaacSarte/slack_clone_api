@@ -64,11 +64,11 @@
 }
 
 aside.emoji-picker-react {
-  position: fixed;
+  position: fixed !important;
   margin-top: -25vh;
   margin-left: -7vw;
-  height: 200px;
-  box-shadow: none;
+  height: 200px !important;
+  box-shadow: none !important;
 }
 
 .emoji-picker {

@@ -57,7 +57,6 @@ const ChatForm = (props) => {
 
   const onEmojiClick = (event, emojiObject) => {
     setChatInput(prevInput => prevInput + emojiObject.emoji);
-    setShowPicker(false);
   };
 
   const handleKeyUp = (e) => {
