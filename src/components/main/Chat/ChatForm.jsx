@@ -6,10 +6,6 @@ import * as UserAPI from "../../../UserAPI";
 // Helpers
 import Headers from "../../../Helpers/Headers";
 
-// Markdown
-import ReactMarkdown from "react-markdown";
-import { Editor } from 'react-draft-wysiwyg';
-
 // Emoji Picker
 import Picker from 'emoji-picker-react';
 
@@ -101,6 +97,11 @@ const ChatForm = (props) => {
     setChatInput("");
   };
 
+  // Function for Not Available Features
+  const notAvailable = () => {
+    alert("Feature is not yet available");
+  };
+
   return (
     <div className="chat-Form">
       <div className="chat-form-container">
@@ -119,20 +120,13 @@ const ChatForm = (props) => {
 
         />
 
-        {/* <Editor
-          onChange={(e) => {
-            setChatInput(e.target.value);
-          }}
-          value={chatInput}
-          onKeyUp={(e) => handleKeyUp(e)}
-        /> */}
-
         {/* Left Side Icons */}
         <div className="chat-form-icons-container">
 
           <div className="icons-container">
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.9 }}
@@ -157,6 +151,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.75 }}
@@ -218,6 +213,7 @@ const ChatForm = (props) => {
           <div className="icons-container">
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.35 }}
@@ -248,6 +244,7 @@ const ChatForm = (props) => {
 
             <motion.div
               className="chat-form-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.2 }}
@@ -257,6 +254,7 @@ const ChatForm = (props) => {
 
             <motion.div
               className="chat-form-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.15 }}

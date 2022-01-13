@@ -6,6 +6,8 @@ import Avatar from "../../Avatar/Avatar";
 // Helpers
 import { formatDay, formatTime } from "../../../Helpers/Date";
 
+import ReactMarkdown from "react-markdown";
+
 // Components
 
 // CSS
@@ -43,17 +45,19 @@ const ChatMsg = (props) => {
               </p>
               <p className="time">{formatTime(time)}</p>
             </div>
-            <div className="body">{msg}</div>
+            <div className="body"><ReactMarkdown>{msg}</ReactMarkdown></div>
           </div>
         </div>
       ) : (
         <div className="second-container">
-            <div className="time-div">
-              {formatTime(time).slice(0, -3)}
-            </div>
-            <div className="body-second">
+          <div className="time-div">
+            {formatTime(time).slice(0, -3)}
+          </div>
+          <div className="body-second">
+            <ReactMarkdown>
               {msg}
-            </div>
+            </ReactMarkdown>
+          </div>
         </div>
       )}
     </div>
