@@ -9,6 +9,13 @@
   border-radius: 2.5px;
 }
 
+.chat-talk-container {
+  position: fixed;
+  transform: translate(90rem, -47rem);
+  /* overflow: hidden; */
+  width: 100px;
+}
+
 .chat-input {
   background-color: #222529;
   resize: none;

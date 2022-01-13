@@ -9,6 +9,9 @@ import Headers from "../../../Helpers/Headers";
 // Emoji Picker
 import Picker from 'emoji-picker-react';
 
+// Speechly
+import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui';
+
 // Framer Motion
 import { motion } from 'framer-motion';
 
@@ -262,6 +265,15 @@ const ChatForm = (props) => {
           <input type="submit" value="send" className="send"></input>
         </div>
       </div>
+
+      {/* Speechly */}
+      <div className="chat-talk-container">
+        <PushToTalkButtonContainer>
+          <PushToTalkButton />
+          <ErrorPanel />
+        </PushToTalkButtonContainer>
+      </div>
+
     </div>
   );
 }
