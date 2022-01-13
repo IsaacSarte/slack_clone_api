@@ -63,6 +63,22 @@
   cursor: pointer;
 }
 
+aside.emoji-picker-react {
+  position: fixed;
+  margin-top: -25vh;
+  margin-left: -7vw;
+  height: 200px;
+  box-shadow: none;
+}
+
+.emoji-picker {
+  cursor: pointer;
+}
+
+.emoji-picker:hover {
+  background-color: #222529;
+}
+
 .disabled-icons {
   cursor: none;
 }

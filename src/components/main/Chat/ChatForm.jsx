@@ -6,10 +6,11 @@ import * as UserAPI from "../../../UserAPI";
 // Helpers
 import Headers from "../../../Helpers/Headers";
 
-// Components
+// Emoji Picker
+import Picker from 'emoji-picker-react';
 
 // Framer Motion
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // CSS
 import "./styles/chatform.css";
@@ -39,219 +40,231 @@ import {
 
 const ChatForm = (props) => {
 
-    // Props
-    const { userId, setConvo, chatType } = props;
+  // Props
+  const { userId, setConvo, chatType } = props;
 
-    /* State Management */
-    const [header] = useState(Headers);
-    const [chatInput, setChatInput] = useState("");
+  /* State Management */
+  const [header] = useState(Headers);
+  const [chatInput, setChatInput] = useState("");
 
-    var raw = {
-      receiver_id: userId,
-      receiver_class: chatType,
-      body: `${chatInput}`,
-    };
+  const [showPicker, setShowPicker] = useState(false);
 
-    const handleKeyUp = (e) => {
-      if (e.which === 13 && !e.shiftKey) {
-        e.preventDefault();
-        //submit
-        handleSubmit(e);
-        return false;
-      }
-      if (
-        (e.code === "Enter" || (e.location === 3 && e.key === "Enter")) &&
-        e.shiftKey
-      ) {
-        setChatInput(chatInput + "\n");
-      }
-    };
+  var raw = {
+    receiver_id: userId,
+    receiver_class: chatType,
+    body: `${chatInput}`,
+  };
 
-    const handleSubmit = (e) => {
+  const onEmojiClick = (event, emojiObject) => {
+    setChatInput(prevInput => prevInput + emojiObject.emoji);
+    setShowPicker(false);
+  };
+
+  const handleKeyUp = (e) => {
+    if (e.which === 13 && !e.shiftKey) {
       e.preventDefault();
-      let input = chatInput;
-      if (chatInput == null || input.trim().length === 0) 
-        return;
-      if (header["access-token"] === undefined) 
-        return;
+      //submit
+      handleSubmit(e);
+      return false;
+    }
+    if (
+      (e.code === "Enter" || (e.location === 3 && e.key === "Enter")) &&
+      e.shiftKey
+    ) {
+      setChatInput(chatInput + "\n");
+    }
+  };
 
-      UserAPI.sendMessages(header, raw)
-        .then((res) => {
-          UserAPI.getMessages(header, userId, chatType)
-            .then((res) => {
-              setConvo(res.data.data);
-            })
-            .catch(() => console.log("Failed to get messages"));
-        })
-        .catch((e) => console.log(e));
-      setChatInput("");
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let input = chatInput;
+    if (chatInput == null || input.trim().length === 0)
+      return;
+    if (header["access-token"] === undefined)
+      return;
 
-    return (
-        <div className="chat-Form">
-          <div className="chat-form-container">
-            <motion.input
-              className="chat-input"
-              type="text"
-              onChange={(e) => {
-                setChatInput(e.target.value);
-              }}
-              value={chatInput}
-              onKeyUp={(e) => handleKeyUp(e)}
-              initial={{ opacity: 0,  width: '0%' }}
-              animate={{ opacity: 1, width: '100%' }}
-              transition={{ duration: 2, delay: 0 }}
-              
-            />
+    UserAPI.sendMessages(header, raw)
+      .then((res) => {
+        UserAPI.getMessages(header, userId, chatType)
+          .then((res) => {
+            setConvo(res.data.data);
+          })
+          .catch(() => console.log("Failed to get messages"));
+      })
+      .catch((e) => console.log(e));
+    setChatInput("");
+  };
 
-            {/* Left Side Icons */}
-            <div className="chat-form-icons-container">
+  return (
+    <div className="chat-Form">
+      <div className="chat-form-container">
+        <motion.input
+          className="chat-input"
+          type="text"
+          onChange={(e) => {
+            setChatInput(e.target.value);
+          }}
+          value={chatInput}
+          onKeyUp={(e) => handleKeyUp(e)}
+          initial={{ opacity: 0, width: '0%' }}
+          animate={{ opacity: 1, width: '100%' }}
+          transition={{ duration: 2, delay: 0 }}
 
-              <div className="icons-container">
+        />
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.9}}
-                >
-                  <BsFillLightningFill />
-                </motion.div>
+        {/* Left Side Icons */}
+        <div className="chat-form-icons-container">
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.85}}
-                >
-                  <BsTypeBold />
-                </motion.div>
+          <div className="icons-container">
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.8}}
-                >
-                  <BsTypeItalic />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.9 }}
+            >
+              <BsFillLightningFill />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.75}}
-                >
-                  <BsTypeStrikethrough />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.85 }}
+            >
+              <BsTypeBold />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.7}}
-                >
-                  <BsCodeSlash />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.8 }}
+            >
+              <BsTypeItalic />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.65}}
-                >
-                  <BsLink45Deg />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.75 }}
+            >
+              <BsTypeStrikethrough />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.6}}
-                >
-                  <BsListOl />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.7 }}
+            >
+              <BsCodeSlash />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.5}}
-                >
-                  <BsListUl />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.65 }}
+            >
+              <BsLink45Deg />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.45}}
-                >
-                  <BsBlockquoteLeft />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.6 }}
+            >
+              <BsListOl />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.4}}
-                >
-                  <BsCodeSquare />
-                </motion.div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.5 }}
+            >
+              <BsListUl />
+            </motion.div>
 
-              </div>
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.45 }}
+            >
+              <BsBlockquoteLeft />
+            </motion.div>
 
-              {/* Right Side Icons */}
-              <div className="icons-container">
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.4 }}
+            >
+              <BsCodeSquare />
+            </motion.div>
 
-                <motion.div className="chat-form-icons disabled-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.35}}
-                >
-                  <IoAtOutline />
-                </motion.div>
-
-                <motion.div className="chat-form-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.3}}
-                >
-                  <BsEmojiSmile />
-                </motion.div>
-
-                <motion.div className="chat-form-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.25}}
-                >
-                  <IoAttach />
-                </motion.div>
-
-                <motion.div 
-                  className="chat-form-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.2}}
-                >
-                  <IoVideocamOutline />
-                </motion.div>
-
-                <motion.div 
-                  className="chat-form-icons"
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.15}}
-                >
-                  <IoMicOutline />
-                </motion.div>
-
-                <motion.div
-                  className="chat-form-icons send-icon"
-                  onClick={(e) => handleSubmit(e)}
-                  initial={{opacity: 0, marginTop: '-2.5rem' }}
-                  animate={{ opacity: 1, marginTop: '0rem'}}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.1}}
-                >
-                  <IoSend />
-                </motion.div>
-
-              </div>
-              <input type="submit" value="send" className="send"></input>
-            </div>
           </div>
+
+          {/* Right Side Icons */}
+          <div className="icons-container">
+
+            <motion.div className="chat-form-icons disabled-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.35 }}
+            >
+              <IoAtOutline />
+            </motion.div>
+
+            {/* Emoji Picker */}
+            <motion.div className="emoji-picker"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0.5rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.3 }}
+              onClick={() => setShowPicker(val => !val)}
+            >
+              <BsEmojiSmile />
+              {showPicker && <Picker
+                // pickerStyle={{ width: '100%' }}
+                onEmojiClick={onEmojiClick} />}
+            </motion.div>
+
+            <motion.div className="chat-form-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.25 }}
+            >
+              <IoAttach />
+            </motion.div>
+
+            <motion.div
+              className="chat-form-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.2 }}
+            >
+              <IoVideocamOutline />
+            </motion.div>
+
+            <motion.div
+              className="chat-form-icons"
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.15 }}
+            >
+              <IoMicOutline />
+            </motion.div>
+
+            <motion.div
+              className="chat-form-icons send-icon"
+              onClick={(e) => handleSubmit(e)}
+              initial={{ opacity: 0, marginTop: '-2.5rem' }}
+              animate={{ opacity: 1, marginTop: '0rem' }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.1 }}
+            >
+              <IoSend />
+            </motion.div>
+
+          </div>
+          <input type="submit" value="send" className="send"></input>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ChatForm;
