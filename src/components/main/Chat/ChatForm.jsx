@@ -15,6 +15,9 @@ import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speech
 // Framer Motion
 import { motion } from 'framer-motion';
 
+// Components
+import MarkDown from "./MarkDownModals/MarkDown";
+
 // CSS
 import "./styles/chatform.css";
 
@@ -102,8 +105,25 @@ const ChatForm = (props) => {
     alert("Feature is not yet available");
   };
 
+  // Modal for Add Channel State Management
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <div className="chat-Form">
+
+      {/* Markdown Component */}
+      <div className="modal-container">
+        <MarkDown
+          onclick={openModal}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      </div>
+
       <div className="chat-form-container">
 
         <motion.textarea
@@ -135,6 +155,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.85 }}
@@ -143,6 +164,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.8 }}
@@ -160,6 +182,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.7 }}
@@ -168,6 +191,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.65 }}
@@ -176,6 +200,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.6 }}
@@ -184,6 +209,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.5 }}
@@ -192,6 +218,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.45 }}
@@ -200,6 +227,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons disabled-icons"
+              onClick={notAvailable}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.4 }}
@@ -235,6 +263,7 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div className="chat-form-icons"
+              onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.25 }}

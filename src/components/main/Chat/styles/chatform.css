@@ -9,6 +9,12 @@
   border-radius: 2.5px;
 }
 
+.modal-container {
+  z-index: 99;
+  transform: translate(Y -40px);
+}
+
+
 .chat-talk-container {
   position: fixed;
   transform: translate(90rem, -47rem);
