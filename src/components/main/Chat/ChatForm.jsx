@@ -17,6 +17,7 @@ import { motion } from 'framer-motion';
 
 // Components
 import MarkDown from "./MarkDownModals/MarkDown";
+import Speechly from "../SpeechlyModals/Speechly";
 
 // CSS
 import "./styles/chatform.css";
@@ -107,9 +108,14 @@ const ChatForm = (props) => {
 
   // Modal for Add Channel State Management
   const [showModal, setShowModal] = useState(false);
+  const [showSpeechly, setShowSpeechly] = useState(false);
 
   const openModal = () => {
     setShowModal((prev) => !prev);
+  };
+
+  const showSpeechlyModal = () => {
+    setShowSpeechly((prev) => !prev);
   };
 
   return (
@@ -121,6 +127,11 @@ const ChatForm = (props) => {
           onclick={openModal}
           showModal={showModal}
           setShowModal={setShowModal}
+        />
+        <Speechly
+          onClick={showSpeechlyModal}
+          showSpeechly={showSpeechly}
+          setShowSpeechly={setShowSpeechly}
         />
       </div>
 
@@ -154,7 +165,7 @@ const ChatForm = (props) => {
               <BsFillLightningFill />
             </motion.div>
 
-            <motion.div className="chat-form-icons disabled-icons"
+            <motion.div className="chat-form-icons disabled-icons bold"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -163,7 +174,7 @@ const ChatForm = (props) => {
               <BsTypeBold />
             </motion.div>
 
-            <motion.div className="chat-form-icons disabled-icons"
+            <motion.div className="chat-form-icons disabled-icons italic"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -199,7 +210,7 @@ const ChatForm = (props) => {
               <BsLink45Deg />
             </motion.div>
 
-            <motion.div className="chat-form-icons disabled-icons"
+            <motion.div className="chat-form-icons disabled-icons list"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -208,7 +219,7 @@ const ChatForm = (props) => {
               <BsListOl />
             </motion.div>
 
-            <motion.div className="chat-form-icons disabled-icons"
+            <motion.div className="chat-form-icons disabled-icons list"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -217,7 +228,7 @@ const ChatForm = (props) => {
               <BsListUl />
             </motion.div>
 
-            <motion.div className="chat-form-icons disabled-icons"
+            <motion.div className="chat-form-icons disabled-icons list"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -262,7 +273,7 @@ const ChatForm = (props) => {
                 onEmojiClick={onEmojiClick} />}
             </motion.div>
 
-            <motion.div className="chat-form-icons"
+            <motion.div className="chat-form-icons attach"
               onClick={openModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
@@ -282,8 +293,8 @@ const ChatForm = (props) => {
             </motion.div>
 
             <motion.div
-              className="chat-form-icons"
-              onClick={notAvailable}
+              className="chat-form-icons mic"
+              onClick={showSpeechlyModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.15 }}

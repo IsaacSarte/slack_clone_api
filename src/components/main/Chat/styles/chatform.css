@@ -75,6 +75,17 @@
   cursor: pointer;
 }
 
+.bold,
+.italic,
+.list,
+.attach {
+  color: white;
+}
+
+.mic {
+  color: red;
+}
+
 aside.emoji-picker-react {
   position: fixed !important;
   margin-top: -25vh;
@@ -85,6 +96,7 @@ aside.emoji-picker-react {
 
 .emoji-picker {
   cursor: pointer;
+  color: yellow;
 }
 
 .emoji-picker:hover {
@@ -101,5 +113,6 @@ aside.emoji-picker-react {
 }
 
 .send-icon {
+  color: green;
   margin-left: 5px;
 }
