@@ -9,15 +9,12 @@ import Headers from "../../../Helpers/Headers";
 // Emoji Picker
 import Picker from 'emoji-picker-react';
 
-// Speechly
-import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui';
 
 // Framer Motion
 import { motion } from 'framer-motion';
 
 // Components
 import MarkDown from "./MarkDownModals/MarkDown";
-import Speechly from "../SpeechlyModals/Speechly";
 
 // CSS
 import "./styles/chatform.css";
@@ -108,14 +105,9 @@ const ChatForm = (props) => {
 
   // Modal for Add Channel State Management
   const [showModal, setShowModal] = useState(false);
-  const [showSpeechly, setShowSpeechly] = useState(false);
 
   const openModal = () => {
     setShowModal((prev) => !prev);
-  };
-
-  const showSpeechlyModal = () => {
-    setShowSpeechly((prev) => !prev);
   };
 
   return (
@@ -127,11 +119,6 @@ const ChatForm = (props) => {
           onclick={openModal}
           showModal={showModal}
           setShowModal={setShowModal}
-        />
-        <Speechly
-          onClick={showSpeechlyModal}
-          showSpeechly={showSpeechly}
-          setShowSpeechly={setShowSpeechly}
         />
       </div>
 
@@ -294,7 +281,6 @@ const ChatForm = (props) => {
 
             <motion.div
               className="chat-form-icons mic"
-              onClick={showSpeechlyModal}
               initial={{ opacity: 0, marginTop: '-2.5rem' }}
               animate={{ opacity: 1, marginTop: '0rem' }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.5, delay: 0.15 }}
@@ -315,16 +301,6 @@ const ChatForm = (props) => {
           </div>
           <input type="submit" value="send" className="send"></input>
         </div>
-      </div>
-
-      {/* Speechly */}
-      <div className="chat-talk-container">
-        <PushToTalkButtonContainer>
-          <PushToTalkButton
-            size="4rem"
-          />
-          <ErrorPanel />
-        </PushToTalkButtonContainer>
       </div>
 
     </div>

@@ -105,3 +105,11 @@
 .custom_shape .shape_Fill2 {
     fill: #bdbdbd;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .formText .spanSuggest {
+        font-size: 1rem !important;
+    }
+}

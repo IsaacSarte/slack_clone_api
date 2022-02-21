@@ -12,9 +12,6 @@ import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import Chat from "../Chat/Chat";
 
-// Speechly
-import { useSpeechContext } from '@speechly/react-client';
-
 // CSS
 import './styles/dashboard.css';
 
@@ -130,23 +127,6 @@ const Dashboard = () => {
     const displayErrorMsg = () => {
       return <div>Please sign in again to continue 😊</div>;
     };
-
-    const logout = () => {
-      AuthAPI.logout();
-      window.location = "/";
-  }
-
-  // Speechly
-  const { segment } = useSpeechContext();
-
-  useEffect(() => {
-    if (segment) {
-      if (segment.isFinal && segment.intent.intent === 'log_out') {
-        logout();
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [segment])
 
     return (
         /* Main Dashboard */

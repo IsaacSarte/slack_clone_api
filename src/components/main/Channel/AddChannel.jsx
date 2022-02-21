@@ -9,9 +9,6 @@ import Headers from "../../../Helpers/Headers";
 // Components
 import ErrMsg from "../ErrorMsg/ErrMsg.jsx";
 
-// Speechly
-import { useSpeechContext } from '@speechly/react-client';
-
 // Framer Motion
 import { motion } from 'framer-motion';
 
@@ -106,22 +103,6 @@ const AddChannel = (props) => {
       );
     })
     : null;
-
-
-  // Speechly
-  const { segment } = useSpeechContext();
-
-  useEffect(() => {
-    if (segment) {
-      if (segment.isFinal && segment.intent.intent === 'open_channel') {
-        setShowModal(true);
-      }
-      else if (segment.isFinal && segment.intent.intent === 'close_channel') {
-        setShowModal(false);
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [segment])
 
   return (
     <div className="add-ch-main-modal">
