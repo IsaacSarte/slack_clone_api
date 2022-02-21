@@ -1,3 +1,31 @@
 .static-links li:hover {
   border-bottom: 1px solid white;
 }
+
+.hand {
+  transform: rotate(-25deg);
+  animation: wave 1s;
+  animation-delay: 1s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(-25deg);
+  }
+
+  25% {
+    transform: rotate(-25deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-25deg);
+  }
+}
