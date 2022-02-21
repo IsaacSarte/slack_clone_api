@@ -49,15 +49,21 @@ const HeaderNav = styled.div`
     }
 `
 
-const Button = styled.button`
+const Button = styled(NavLink)`
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    background-color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
     border: none;
     outline: none;
-    border-radius: 15px;
-    font-size: 1.25rem;
-    color: #4A154B;
+    border-radius: 10px;
     transition: 0.25s;
+
+    >span {
+        color: #4A154B;
+        font-size: 1.45rem;
+        font-weight: 550;
+    }
 
     &:hover {
         border-radius: 0px;
@@ -85,7 +91,7 @@ const Header = () => {
                     <li id="sl-3">Resources</li>
                 </ul>
                 <Button className="sign-in-btn" to="/signin" exact>
-                    Create a New WorkSpace
+                    <span>Create a New WorkSpace</span>
                 </Button>
             </motion.nav>
         </HeaderNav>
