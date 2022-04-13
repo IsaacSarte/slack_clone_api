@@ -76,6 +76,13 @@ const SectionCard = styled.div`
             z-index: 0;
         }
     }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        max-width: 768px;
+        align-items: center;
+        gap: 0rem;
+    }
 `
 
 const CardText = styled.span`
@@ -97,6 +104,13 @@ const Line = styled.div`
     @media screen and (max-width: 500px) {
         >div>span {
             font-size: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        >div {
+            position: relative;
+            margin-top: 7rem;
         }
     }
 `

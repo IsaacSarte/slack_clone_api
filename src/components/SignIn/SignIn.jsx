@@ -60,7 +60,7 @@ const SignIn = () => {
     }
 
     const handleSubmit = (e) => {
-        const url = 'https://slackapi.avionschool.com/api/v1/auth/sign_in';
+        const url = 'http://206.189.91.54/api/v1/auth/sign_in';
         e.preventDefault();
 
         axios

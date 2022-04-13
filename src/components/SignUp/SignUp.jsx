@@ -30,7 +30,7 @@ const SignUp = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const url = "https://slackapi.avionschool.com/api/v1/auth/";
+        const url = "http://206.189.91.54/api/v1/auth/";
 
         axios
             .post(url, {

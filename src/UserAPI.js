@@ -1,7 +1,7 @@
 // axios
 import axios from 'axios';
 
-const API_URL = 'https://slackapi.avionschool.com/api/v1/';
+const API_URL = 'http://206.189.91.54/api/v1/';
 
 // sign up / register function
 export const signUp = (body) => {
